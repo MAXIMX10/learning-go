@@ -2,6 +2,9 @@ package main
 
 type Slice struct {
 	// 1 шаг
+	pointer *[]int // считаем за массив
+	len     int
+	cap     int
 }
 
 func (s *Slice) Init(length, capacity int) *Slice {
