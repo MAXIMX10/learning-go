@@ -5,6 +5,7 @@ type Slice struct {
 	pointer *[]int // считаем за массив
 	len     int
 	cap     int
+	//Проверка новой ветки
 }
 
 func (s *Slice) Init(length, capacity int) *Slice {
