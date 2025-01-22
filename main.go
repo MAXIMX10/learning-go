@@ -5,16 +5,16 @@ import (
 )
 
 type ISlice interface {
-	Init(length, capacity int) *Slice // make([]int, 4, 8)															2 шаг
 	Get(idx int) int                  // s[1] 																		2 шаг
 	Set(idx, value int)               // s[1] = 1 																	2 шаг
+	Init(length, capacity int) *Slice // make([]int, 4, 8)															2 шаг
 	Cut(i, j int) *Slice              // s[1:4]																		3 шаг
 }
 
 type OpenSlice interface {
+	Len(s *Slice) int                             // 																2 шаг
+	Cap(s *Slice) int                             // 																2 шаг
 	Append(slice *Slice, newValues ...int) *Slice // append(a, 1, 2, 3), 											3 шаг
-	Len()                                         // 																2 шаг
-	Cap()                                         // 																2 шаг
 }
 
 func main() {
@@ -24,12 +24,24 @@ func main() {
 	Append(a, 1, 2, 3)
 	Len(a)
 	Cap(a)*/
-	var s Slice
-	fmt.Println(s.Init(4, 5))
-	fmt.Println(s.Get(3))
-	s.Set(3, 10)
+	s := Init(4, 4)
+	//fmt.Println(s.pointer)
+	//fmt.Println(s.Get(3))
+	s.Set(0, 0)
+	s.Set(1, 1)
+	s.Set(2, 2)
+	s.Set(3, 3)
+
+	//fmt.Println(s.Get(3))
+	fmt.Println(s)
+
+	//fmt.Println(Len(s))
+	//fmt.Println(Cap(s))
+
+	//b := s.Cut(1, 2)
+	fmt.Println(b)
+	/*s.Set(3, 10)
 	fmt.Println(s.Get(3))
 	fmt.Println(s.pointer)
-	fmt.Println(Len(s)) // вместо &s
-	fmt.Println(Cap(s)) // вместо &s
+	*/
 }

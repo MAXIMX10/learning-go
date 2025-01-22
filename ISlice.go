@@ -7,39 +7,42 @@ type Slice struct {
 	cap     int
 }
 
-func (s *Slice) Init(length, capacity int) *Slice {
-
-	if (length > 0) && (capacity > 0) && (length <= capacity) {
-		arr := make([]int, 10, 10)                 // считаем за базовый массив
-		arr = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10} // для проверок
-		//arr_pointer := &arr
-		s.pointer = arr
-		s.len = length
-		s.cap = capacity
-
-		for i := range length {
-			s.pointer[i] = 0
-		}
-
-	} else {
-		panic("Input length or capacity is incorrect")
-	}
-	return s // Но при выводе результата make выведется только слайс (без длины и ёмкости)
-}
-
 func (s *Slice) Get(idx int) int {
-	if (idx >= 0) && (idx < s.len) {
-		return s.pointer[idx]
-	} else {
-		panic("Input value of index is not correct")
+
+	if (idx < 0) || (idx >= s.len) {
+		panic("Input value of index isn't correct")
 	}
+
+	return s.pointer[idx]
 
 }
 
 func (s *Slice) Set(idx, value int) {
-	if (idx >= 0) && (idx < s.len) {
-		s.pointer[idx] = value
-	} else {
+	if (idx < 0) || (idx >= s.len) {
 		panic("Input value of index is not correct")
 	}
+	s.pointer[idx] = value
+}
+
+func Init(length, capacity int) *Slice {
+
+	var s Slice
+
+	if length < 0 {
+		panic("Length can't be less than 0")
+	}
+	if capacity < 0 {
+		panic("Capacity can't be less than 0")
+	}
+	if length > capacity {
+		panic("Capacity can't be less than length")
+	}
+
+	arr := make([]int, length, capacity)
+
+	s.pointer = arr
+	s.len = length
+	s.cap = capacity
+
+	return &s
 }
