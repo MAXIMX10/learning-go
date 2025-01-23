@@ -38,8 +38,9 @@ func main() {
 	//fmt.Println(Len(s))
 	//fmt.Println(Cap(s))
 
-	//b := s.Cut(1, 2)
-	fmt.Println(b)
+	s = Append(s, 2, 2, 2, 2, 2)
+	fmt.Println(s)
+	fmt.Println(s)
 	/*s.Set(3, 10)
 	fmt.Println(s.Get(3))
 	fmt.Println(s.pointer)
