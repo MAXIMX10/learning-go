@@ -24,25 +24,19 @@ func main() {
 	Append(a, 1, 2, 3)
 	Len(a)
 	Cap(a)*/
-	s := Init(4, 4)
+	s := Init(4, 5)
 	//fmt.Println(s.pointer)
 	//fmt.Println(s.Get(3))
 	s.Set(0, 0)
 	s.Set(1, 1)
 	s.Set(2, 2)
 	s.Set(3, 3)
-
 	//fmt.Println(s.Get(3))
 	fmt.Println(s)
-
-	//fmt.Println(Len(s))
-	//fmt.Println(Cap(s))
-
 	s = Append(s, 2, 2, 2, 2, 2)
 	fmt.Println(s)
-	fmt.Println(s)
-	/*s.Set(3, 10)
+	/*fmt.Println(s)
+	s.Set(3, 10)
 	fmt.Println(s.Get(3))
-	fmt.Println(s.pointer)
-	*/
+	fmt.Println(s.pointer)*/
 }
