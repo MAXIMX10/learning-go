@@ -18,25 +18,36 @@ type OpenSlice interface {
 }
 
 func main() {
-	/*a := Init(4, 8)
-	a.Cut(1, 4) // [0 0 0]
+	fmt.Printf("a: \n")
+	//a := []int{0, 1, 2, 3}
+	a := Init(4, 4)
+	a.Set(0, 0)
+	a.Set(1, 1)
+	a.Set(2, 2)
+	a.Set(3, 3)
+	fmt.Println(a)
+	a = Append(a, 1)
+	fmt.Println(a)
 
-	Append(a, 1, 2, 3)
-	Len(a)
-	Cap(a)*/
-	s := Init(4, 5)
-	//fmt.Println(s.pointer)
-	//fmt.Println(s.Get(3))
-	s.Set(0, 0)
-	s.Set(1, 1)
-	s.Set(2, 2)
-	s.Set(3, 3)
-	//fmt.Println(s.Get(3))
-	fmt.Println(s)
-	s = Append(s, 2, 2, 2, 2, 2)
-	fmt.Println(s)
-	/*fmt.Println(s)
-	s.Set(3, 10)
-	fmt.Println(s.Get(3))
-	fmt.Println(s.pointer)*/
+	fmt.Printf("b: \n")
+	b := Init(4, 4)
+	b.Set(0, 0)
+	b.Set(1, 1)
+	b.Set(2, 2)
+	b.Set(3, 3)
+	//b := []int{0, 1, 2, 3}
+	fmt.Println(b)
+	b = Append(b, 1, 1)
+	fmt.Println(b)
+
+	fmt.Printf("c: \n")
+	c := Init(4, 4)
+	c.Set(0, 0)
+	c.Set(1, 1)
+	c.Set(2, 2)
+	c.Set(3, 3)
+	//c := []int{0, 1, 2, 3}
+	fmt.Println(c)
+	c = Append(c, 1, 1, 1, 1, 1, 1, 1)
+	fmt.Println(c)
 }
