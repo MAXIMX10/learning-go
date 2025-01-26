@@ -48,7 +48,7 @@ func Init(length, capacity int) *Slice {
 }
 
 func (s *Slice) Cut(i, j int) *Slice {
-	var new_Slice Slice
+	var newSlice Slice
 
 	if i < 0 || j < 0 {
 		panic("Input arguments must be positive")
@@ -58,14 +58,14 @@ func (s *Slice) Cut(i, j int) *Slice {
 		panic("Second argument can't be less than first argument")
 	}
 
-	new_len := j - i
-	new_cap := s.cap - i
-	new_Slice.len = new_len
-	new_Slice.cap = new_cap
+	newLen := j - i
+	newCap := s.cap - i
+	newSlice.len = newLen
+	newSlice.cap = newCap
 
 	if i < j {
-		new_Slice.pointer = s.pointer[i:j]
+		newSlice.pointer = s.pointer[i:j]
 	}
 
-	return &new_Slice
+	return &newSlice
 }
